@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap');
+
+* { box-sizing: border-box; }
+
+:root {
+  --ink: #111;
+  --paper: #f7f7f5;
+  --paper-shadow: #d7d7d4;
+  --white: #fff;
+  --gray: #555;
+  --line: #222;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.65;
+  background-color: #e8e8e6;
+  background-image:
+    radial-gradient(#aaa 0.7px, transparent 0.7px),
+    linear-gradient(135deg, #efefed, #d9d9d7);
+  background-size: 7px 7px, auto;
+}
+
+img, iframe { max-width: 100%; }
+
+.page-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 2.5rem;
+  color: var(--white);
+  background: var(--ink);
+  border-bottom: 4px solid var(--white);
+  box-shadow: 0 5px 0 var(--ink);
+}
+
+.navbar-left img {
+  display: block;
+  height: 42px;
+  width: auto;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+
+.navbar-right {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar-right a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.navbar-right a:hover,
+.navbar-right a:focus-visible {
+  color: #bdbdbd;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+.home-card,
+#design-process,
+#competitions,
+#learning,
+#contact,
+.resource-card {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.home-card { padding: 2rem 1.5rem 0; }
+
+.resource-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 3px;
+  box-shadow: 7px 7px 0 var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resource-card::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 110px;
+  height: 110px;
+  background-image: radial-gradient(#111 1px, transparent 1px);
+  background-size: 6px 6px;
+  opacity: 0.09;
+  mask-image: linear-gradient(135deg, transparent 15%, #000 100%);
+  pointer-events: none;
+}
+
+.resource-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+.resource-card h2 {
+  position: relative;
+  margin: 0 0 1rem;
+  padding: 0 0 0.65rem;
+  color: var(--ink);
+  border-bottom: 4px solid var(--ink);
+  font-family: 'Oswald', 'Inter', sans-serif;
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.resource-card > p,
+.goal-item p,
+.process-step p,
+.competition-item p,
+.reflection p,
+.bio-text p { color: #444; }
+
+.bio-card {
+  background:
+    radial-gradient(#777 0.8px, transparent 0.8px) 100% 0 / 8px 8px no-repeat,
+    var(--white);
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.bio-pic img {
+  width: 180px;
+  height: 180px;
+  border: 4px solid var(--ink);
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.08);
+  box-shadow: 6px 6px 0 #888;
+}
+
+.bio-text { max-width: 760px; }
+
+.eyebrow {
+  margin: 0 0 0.45rem;
+  color: #555;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.bio-text h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Oswald', 'Inter', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #bbb;
+}
+
+.bio-text h4 {
+  margin: 0.7rem 0 1rem;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.goals-card { background: #f0f0ee; }
+
+.goals-content,
+.competitions-content,
+.design-process-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.goals-content { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+.goal-item,
+.process-step,
+.competition-item,
+.reflection {
+  padding: 1.35rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 2px solid var(--ink);
+  border-radius: 2px;
+  box-shadow: 4px 4px 0 #aaa;
+}
+
+.goal-item h3,
+.process-step h3,
+.competition-item h3,
+.reflection h3 {
+  margin: 0 0 0.6rem;
+  color: var(--ink);
+  font-family: 'Oswald', 'Inter', sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.goal-item { border-left: 6px solid var(--ink); }
+
+.design-process-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 1.5rem;
+}
+
+.process-step { position: relative; }
+
+.process-step::before {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 5px;
+  margin: -0.25rem 0 0.8rem;
+  background: var(--ink);
+}
+
+.project {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.project iframe {
+  flex: 1.4;
+  min-width: 320px;
+  width: 100%;
+  height: 400px;
+  background: #ddd;
+  border: 3px solid var(--ink);
+  border-radius: 2px;
+  filter: grayscale(1);
+}
+
+.reflection { flex: 1; }
+.reflection strong { color: #111; }
+
+.competitions-content { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+#contact { margin-bottom: 3rem; }
+
+#contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+#contact li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #444;
+}
+
+#contact strong { min-width: 82px; color: var(--ink); }
+#contact a { color: #111; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+#contact a:hover { color: #555; }
+
+footer {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  color: #555;
+  border-top: 2px solid var(--ink);
+  text-align: center;
+}
+
+.new-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.cfu-card { background: #f0f0ee; }
+
+@media (max-width: 1024px) {
+  .project { flex-direction: column; }
+  .project iframe { min-width: 0; height: 360px; }
+}
+
+@media (max-width: 768px) {
+  .navbar { flex-direction: column; padding: 1rem 1.2rem; }
+  .navbar-right { gap: 0.8rem 1.2rem; font-size: 0.8rem; }
+  .new-grid { grid-template-columns: 1fr; padding: 0 1rem; }
+}
+
+@media (max-width: 600px) {
+  .resource-card { margin: 1.5rem 0.6rem; padding: 1.3rem; }
+  .home-card { padding-right: 1rem; padding-left: 1rem; }
+  .project iframe { height: 300px; }
+  #contact li { align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
