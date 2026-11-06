@@ -345,3 +345,147 @@ footer {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Manga-inspired polish: preserve the monochrome palette while adding inked panel frames,
+   halftone accents, expressive title treatments, and responsive comic-page rhythm. */
+body {
+  background-image:
+    radial-gradient(#999 0.65px, transparent 0.65px),
+    linear-gradient(135deg, #efefed, #d9d9d7);
+  background-size: 9px 9px, auto;
+}
+
+.navbar { border-bottom-width: 5px; }
+.navbar-right a { transition: transform 160ms ease, color 160ms ease; }
+.navbar-right a:hover,
+.navbar-right a:focus-visible {
+  color: #d1d1cf;
+  display: inline-block;
+  transform: rotate(-3deg) translateY(-2px);
+}
+
+.home-card { max-width: 1160px; }
+.resource-card {
+  border: 3px solid var(--ink);
+  border-radius: 0;
+  box-shadow: 9px 9px 0 var(--ink);
+}
+.resource-card:hover { box-shadow: 12px 12px 0 var(--ink); }
+.resource-card h2 {
+  display: table;
+  padding: 0 0.55rem 0.55rem 0;
+  border-bottom-width: 5px;
+  text-shadow: 2px 2px 0 #d0d0ce;
+}
+
+.bio-card {
+  background:
+    radial-gradient(#777 1px, transparent 1px) right 1.2rem top 1.2rem / 8px 8px,
+    linear-gradient(115deg, #fff 0%, #fff 72%, #e5e5e3 72%, #e5e5e3 100%);
+}
+.bio { gap: 2rem; }
+.bio-pic img {
+  border-radius: 4px;
+  transform: rotate(-3deg);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.bio-text { position: relative; }
+.bio-text h1 {
+  display: inline-block;
+  padding: 0.05em 0.16em;
+  background: var(--white);
+  border: 3px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  text-shadow: 2px 2px 0 #c6c6c4;
+  transform: rotate(-1deg);
+}
+.bio-text h4 {
+  display: table;
+  margin: 1.1rem auto 1rem;
+  padding: 0.25rem 0.8rem;
+  background: #e5e5e3;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.goal-item,
+.process-step,
+.competition-item,
+.reflection {
+  position: relative;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.goal-item:hover,
+.process-step:hover,
+.competition-item:hover,
+.reflection:hover {
+  transform: translate(-3px, -3px) rotate(-0.4deg);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.goal-item { border-left-width: 8px; }
+.goal-item:nth-child(even),
+.competitions-content .competition-item:nth-child(even) { transform: rotate(1deg); }
+.goal-item:nth-child(even):hover,
+.competitions-content .competition-item:nth-child(even):hover {
+  transform: translate(-3px, -3px) rotate(0deg);
+}
+.process-step::before {
+  width: 2.5rem;
+  height: 7px;
+  transform: skewX(-28deg);
+}
+
+.project-card { background: #f2f2f0; }
+.project iframe {
+  border-width: 4px;
+  border-radius: 0;
+  box-shadow: 6px 6px 0 #999;
+}
+.reflection {
+  background:
+    linear-gradient(135deg, transparent 0 16px, #fff 16px) top right / 28px 28px no-repeat,
+    var(--white);
+}
+.reflection h3 {
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.new-grid { gap: 1.8rem; }
+.new-grid .resource-card:nth-child(odd) { transform: rotate(-0.35deg); }
+.new-grid .resource-card:nth-child(even) { transform: rotate(0.35deg); }
+.new-grid .resource-card:hover { transform: translateY(-3px) rotate(0); }
+
+#contact a { text-decoration-thickness: 2px; }
+#contact a:hover { color: #333; }
+
+@media (min-width: 900px) {
+  .bio {
+    flex-direction: row;
+    text-align: left;
+  }
+  .bio-text h4 { margin-left: 0; }
+  .bio-pic { flex: 0 0 210px; }
+  .bio-pic img { width: 190px; height: 220px; }
+  .project-card:nth-of-type(even) .project { flex-direction: row-reverse; }
+}
+
+@media (max-width: 768px) {
+  .navbar { border-bottom-width: 4px; }
+  .bio-text h1 { font-size: clamp(2.1rem, 10vw, 3.2rem); }
+  .goal-item:nth-child(even),
+  .competitions-content .competition-item:nth-child(even),
+  .new-grid .resource-card:nth-child(odd),
+  .new-grid .resource-card:nth-child(even) { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-right a,
+  .goal-item,
+  .process-step,
+  .competition-item,
+  .reflection { transition: none; }
+}
